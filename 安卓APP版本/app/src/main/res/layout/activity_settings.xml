@@ -1,0 +1,56 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="账号" />
+
+        <EditText
+            android:id="@+id/editPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="密码"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/editWeChatId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="unionId" />
+
+
+        <EditText
+            android:id="@+id/editAuxAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="辅助账号" />
+
+        <EditText
+            android:id="@+id/editAuxPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="辅助密码"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="保存" />
+        <Button
+            android:id="@+id/btnExplain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="说明" />
+
+    </LinearLayout>
+</ScrollView>
