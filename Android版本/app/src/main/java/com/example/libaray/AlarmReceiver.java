@@ -83,13 +83,13 @@ public class AlarmReceiver extends BroadcastReceiver {
     private void checkOut(String type) {
         //Log.d(TAG, "Performing check-out...");
         // Simulate check-out action
+        signinOrSignout.scanOut();
         if (getAuxTurn() == 2) {
             //Log.d(TAG, "Auxiliary account is holding the reservation. Transferring...");
             cancelReserve(type);
+            type=getType();
             reserve(type); // Re-reserve under main account
         }
-
-        signinOrSignout.scanOut();
         changeTurn(0); // Reset the turn state
     }
 
@@ -116,6 +116,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         //Log.d(TAG, "Auxiliary account reservation...");
         // Implement auxiliary account reservation logic
         embodyReserve.reserve(type,true);
+        setType(type);
 
     }
 
@@ -129,7 +130,14 @@ public class AlarmReceiver extends BroadcastReceiver {
     private int getAuxTurn() {
         return sharedPreferences.getInt(EnumTurns.AUX_TURN, 0);
     }
-
+    private String getType(){
+    return     sharedPreferences.getString("type", null);
+    }
+    private void setType(String type){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("type",type );
+        editor.apply();
+    }
     private void changeTurn(int turnState) {
         //Log.d(TAG, "Changing turn state to: " + turnState);
         SharedPreferences.Editor editor = sharedPreferences.edit();
